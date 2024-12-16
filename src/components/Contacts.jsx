@@ -130,13 +130,15 @@ const Contacts = () => {
   return (
     <div>
       <div className="header-bar">
-        <div className="header-logo">Instagram</div>
-        <div className="header-nav">
-          <a href="#">Home</a>
-          {/* Logout button */}
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      </div>
+  <div className="header-logo">
+    <img src="/instagram.png" alt="Instagram Logo" />
+    InstaClone
+  </div>
+  <div className="header-nav">
+    <a href="#">Home</a>
+    <button onClick={handleLogout}>Logout</button>
+  </div>
+</div>
 
       <div className="main-container">
         <div className="left-sidebar">

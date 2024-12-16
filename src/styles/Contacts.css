@@ -56,7 +56,7 @@
   }
   
   .header-nav button:hover {
-    color: #d1356e; /* Instagram pink-red when hovered */
+    color: #d1356e; 
     text-decoration: underline;
   }
   
@@ -71,19 +71,17 @@
     overflow: hidden; /* Prevent outer layout scroll */
   }
   
-  /* Left Sidebar: Stories */
   .left-sidebar {
-    width: 20%;
+    position: fixed; /* Fix the sidebar to the screen */
+    top: 50; /* Start at the top of the screen */
+    left: 0; /* Place it at the left edge of the screen */
+    width: 300px; /* Set a fixed width for the sidebar */
+    height: 100%; /* Make it span the full height of the screen */
     background-color: #121212;
-    border-radius: 8px;
-    padding: 10px;
-    overflow-y: auto; /* Scrollable */
-    max-height: 100%;
-  }
-  
-  .left-sidebar h3 {
-    color: #fff;
-    margin-bottom: 15px;
+    border-radius: 0 20px 20px 0; /* Round only the inner corners */
+    padding: 20px 10px; /* Adjust padding for spacing */
+    overflow-y: auto; /* Allow vertical scrolling */
+    z-index: 1000; /* Ensure it's above other elements */
   }
   
   .stories-container {
@@ -99,8 +97,8 @@
   }
   
   .story-avatar {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 3px solid transparent;
     background: linear-gradient(to right, #f58529, #c13584, #833ab4, #405de6);
@@ -120,30 +118,44 @@
     color: #ccc;
   }
   
-  /* Middle Container: Posts */
-  .middle-container {
+  
+/* Middle Container: Posts */
+.middle-container {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
     overflow-y: scroll; /* Allow vertical scroll within the container */
     max-height: 100%; /* Set height to allow scrolling when posts overflow */
-  }
-  
-  .post {
-    background-color: #121212;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    margin-bottom: 20px;
-    flex-shrink: 0; /* Prevent post shrinking */
-  }
-  
-  .post-image {
-    width: 100%;
-    max-height: 400px; /* Set fixed height */
-    object-fit: cover; /* Maintain aspect ratio */
-  }
+}
+
+/* Post Styles */
+.post {
+    background-color: #121212; /* Post background color */
+    border-radius: 8px; /* Smooth corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional depth effect */
+    overflow: hidden; /* Prevent content overflow */
+    margin: 10px auto; /* Center posts with spacing */
+    padding: 10px; /* Add padding */
+    flex-shrink: 0;
+    width: 100%; /* Make posts fill the available width */
+    max-width: 90%; /* Make the post fit smaller screens if needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Image Styles: Maintain original aspect ratio and size */
+.post-image {
+    display: block; /* Ensure the image behaves like a block element */
+    width: auto; /* Set width to auto to maintain the original aspect ratio */
+    max-width: 100%; /* Prevent exceeding container width */
+    height: auto; /* Maintain original height */
+    max-height: 400px; /* Limit height, if needed */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 5px; /* Optionally round corners of the image */
+}
+
+
   
   .post-caption {
     padding: 10px;
@@ -151,14 +163,17 @@
     color: #eae2b7;
   }
   
-  /* Right Sidebar: Suggestions */
   .right-sidebar {
-    width: 25%;
+    position: fixed; /* Fix the sidebar to the screen */
+    top: 50; /* Start at the top of the screen */
+    right: 0; /* Align it to the far right edge */
+    width: 300px; /* Set a fixed width for the sidebar */
+    height: 100%; /* Make it span the full height of the screen */
     background-color: #121212;
-    border-radius: 8px;
+    border-radius: 20px 0 0 20px; /* Round only the inner corners */
     padding: 15px;
-    overflow-y: auto; /* Scrollable suggestions */
-    max-height: 100%;
+    overflow-y: auto; /* Allow vertical scrolling */
+    z-index: 1000; /* Ensure it stays above other elements */
   }
   
   .suggestions-container h3 {
@@ -287,5 +302,63 @@
   
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+  
+
+  .header-bar {
+    display: flex;
+    justify-content: center; /* Centers the inner content */
+    align-items: center;
+    background-color: #f8f9fa; /* Adjust as needed */
+    padding: 10px 0; /* Adjust vertical padding */
+    width: 100vw; /* Full width of the viewport */
+    position: fixed; /* Optional: Fix the header to the top */
+    top: 0; /* Position it at the top of the screen */
+    left: 0; /* Ensure it starts at the left edge */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional styling */
+    z-index: 1000; /* Ensure it stays above other elements */
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between; /* Space between logo and navigation */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Keep content aligned and readable */
+    padding: 0 20px; /* Add padding for inner spacing */
+  }
+  
+  
+  .header-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .header-logo img {
+    height: 60px;
+    margin-right: 0px; /* Add space between logo and text */
+  }
+  
+  .header-nav {
+    display: flex;
+    gap: 15px; /* Adjust spacing between links/buttons */
+  }
+  
+  .header-nav a,
+  .header-nav button {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  
+  .header-nav button {
+    color: #2e7ce1; /* Optional: distinguish logout */
   }
   
