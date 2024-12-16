@@ -11,9 +11,16 @@ import {jwtDecode} from 'jwt-decode';
 const Contacts = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([
-    { id: 1, image_url: "/images/image1.jpg", caption: "Beautiful view!" },
-    { id: 2, image_url: "/images/image2.jpg", caption: "A serene sunset." },
-    { id: 3, image_url: "/images/image3.jpg", caption: "A serene sunset." },
+    { id: 1, image_url: "/images/image1.jpg", caption: "It Happens to the best of us" },
+    { id: 2, image_url: "/images/image2.jpg", caption: "That’s one way to differentiate" },
+    { id: 4, image_url: "/images/image3.jpg", caption: "Not on the same page" },
+    { id: 3, image_url: "/images/image4.jpg", caption: "Yep, looks pretty accurate" },
+    { id: 5, image_url: "/images/image5.jpg", caption: "Problem…solved!" },
+    { id: 6, image_url: "/images/image6.jpg", caption: "I think that’s how it works?" },
+    { id: 7, image_url: "/images/image7.jpg", caption: "Never give up!!" },
+    { id: 8, image_url: "/images/image8.jpg", caption: "The good kind of tears?" },
+    { id: 9, image_url: "/images/image9.jpg", caption: "Incompatible data probs" },
+    { id: 10, image_url: "/images/image10.jpg", caption: "I made this website using chatGPT:)" },
   ]);
   const [loading, setLoading] = useState(true);
   const [modalShow, setModalShow] = useState(false);
@@ -23,7 +30,14 @@ const Contacts = () => {
   const stories = [
     { id: 1, username: "Ronald", avatar_url: "/images/image1.jpg" },
     { id: 2, username: "Eman", avatar_url: "/images/image3.jpg" },
-    { id: 3, username: "Jopeth", avatar_url: "/images/image2.jpg" },
+    { id: 4, username: "Jopeth", avatar_url: "/images/image2.jpg" },
+    { id: 5, username: "Elon", avatar_url: "/images/image8.jpg" },
+    { id: 6, username: "Mark", avatar_url: "/images/image6.jpg" },
+    { id: 7, username: "Jeff", avatar_url: "/images/image4.jpg" },
+    { id: 8, username: "Fritz", avatar_url: "/images/image10.jpg" },
+    { id: 9, username: "Bella", avatar_url: "/images/image7.jpg" },
+    { id: 3, username: "Brian", avatar_url: "/images/image9.jpg" },
+    { id: 10, username: "Hawk", avatar_url: "/images/image5.jpg" },
   ];
 
   useEffect(() => {
