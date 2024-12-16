@@ -43,7 +43,16 @@ const Profile = () => {
         );
         console.log("User Data Response:", response.data);  // Log the response to check if user data is returned
 
-        setUser(response.data);
+        // Find the user by matching user_id
+        const loggedInUser = response.data.find(
+          (user) => user.user_id === decodedToken.user_id
+        );
+
+        if (loggedInUser) {
+          setUser(loggedInUser); // Set user state if found
+        } else {
+          console.error("Logged in user not found in the response.");
+        }
       } catch (error) {
         console.error("Error fetching user data", error);
       }
