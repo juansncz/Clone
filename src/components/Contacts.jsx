@@ -6,7 +6,8 @@ import defaultAvatar from "/images/default.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import swal from 'sweetalert2';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
+
 
 const Contacts = () => {
   const [users, setUsers] = useState([]);
@@ -76,10 +77,9 @@ const Contacts = () => {
     navigate("/login"); // navigate to login page
   };
 
-  const handleViewProfile = (user) => {
-    setSelectedUser(user);
-    setModalShow(true);
-    console.log('Selected user', user);
+  // Navigate to the Profile page
+  const handleProfileClick = () => {
+    navigate("/profile");
   };
 
   const handleDelete = async (id) => {
@@ -127,18 +127,27 @@ const Contacts = () => {
     }
   };
 
+  const handleViewProfile = (user) => {
+    setSelectedUser(user);
+    setModalShow(true);
+    console.log('Selected user', user);
+  };
+
   return (
     <div>
+      {/* Header Bar with Profile Button */}
       <div className="header-bar">
-  <div className="header-logo">
-    <img src="/instagram.png" alt="Instagram Logo" />
-    InstaClone
-  </div>
-  <div className="header-nav">
-    <a href="#">Home</a>
-    <button onClick={handleLogout}>Logout</button>
-  </div>
-</div>
+        <div className="header-logo">
+          <img src="/instagram.png" alt="Instagram Logo" />
+          InstaClone
+        </div>
+        <div className="header-nav">
+          <a href="#">Home</a>
+          {/* Profile Button */}
+          <button onClick={handleProfileClick}>Profile</button>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      </div>
 
       <div className="main-container">
         <div className="left-sidebar">

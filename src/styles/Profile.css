@@ -1,0 +1,126 @@
+/* Full screen setup, prevent any horizontal scrolling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: Arial, sans-serif;
+}
+
+/* General Reset for smooth styling consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Profile container setup with flex to allow scrolling */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;  /* Ensure it uses full screen height */
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 87px; /* To account for the header bar height */
+    background-color: #121212; /* Match the background color of the container */
+    padding: 10px 15px; /* Reduced padding to make it smaller */
+    border-bottom: 1px solid #101010; /* Subtle border effect */
+    z-index: 10;
+    border-radius: 8px; /* Reduced border radius */
+}
+
+/* Profile picture and user details */
+.profile-info {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px; /* Reduced padding */
+}
+
+.profile-avatar {
+    width: 80px; /* Reduced avatar size */
+    height: 80px; /* Reduced avatar size */
+    border-radius: 50%;
+    margin-right: 15px; /* Reduced space between avatar and text */
+}
+
+.user-info h1 {
+    margin: 0;
+    font-size: 1.6rem; /* Reduced size for the username */
+    color: #eae2b7;  /* Light color for text */
+}
+
+.user-info p {
+    margin: 5px 0;
+    font-size: 0.9rem; /* Smaller text size for additional info */
+    color: #ccc;  /* Soft color for additional text */
+}
+
+/* Posts container, ensuring it scrolls under the fixed header */
+.posts-container {
+    margin-top: 120px; /* Ensures posts start below header bar */
+    padding-bottom: 20px;  /* Space below content */
+    overflow-y: auto; /* Allow scrolling */
+    flex-grow: 1; /* Take up remaining space */
+    max-height: calc(100vh - 240px); /* Ensures it fits within the remaining view height */
+    padding-top: 30px; /* Some space between posts and header */
+    margin-left: 50px;  /* Adds margin to the left */
+    margin-right: 50px; /* Adds margin to the right */
+}
+
+/* Displaying the grid of images (3 images in a row) */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns of photos */
+    gap: 15px; /* Space between photos */
+}
+
+/* Post card item styling */
+.post-item {
+    background-color: #121212;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional depth effect */
+    border-radius: 10px;
+    overflow: hidden; /* Ensures the images don't spill outside */
+}
+
+/* Image styling: Keeps aspect ratio and fills container appropriately */
+.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Post captions styled for legibility */
+.post-caption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #eae2b7;  /* Light color for visibility */
+}
+
+/* For smooth scrolling and ensuring content fits */
+body {
+    overflow-y: scroll;
+    height: 100%; /* Ensure height is 100% to enable scrolling */
+}
+
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
