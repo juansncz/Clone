@@ -14,101 +14,143 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Profile container setup with flex to allow scrolling */
+/* Profile container setup with flex for scrolling */
 .profile-container {
     display: flex;
     flex-direction: column;
-    height: 100%;  /* Ensure it uses full screen height */
+    height: 100%; /* Full screen height */
     padding: 20px;
-}
-
-.profile-header {
+    background: #1a1a1a; /* Slightly darker to give depth */
+    gap: 20px; /* Add spacing between elements */
+  }
+  
+  /* Profile header with a fixed, polished design */
+  .profile-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    top: 87px; /* To account for the header bar height */
-    background-color: #121212; /* Match the background color of the container */
-    padding: 10px 15px; /* Reduced padding to make it smaller */
-    border-bottom: 1px solid #101010; /* Subtle border effect */
+    top: 72px; /* Adjust for header height */
+    background: linear-gradient(to right, #333, #121212); /* Subtle gradient */
+    padding: 12px 20px; /* More refined padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light, subtle border */
     z-index: 10;
-    border-radius: 8px; /* Reduced border radius */
-}
-
-/* Profile picture and user details */
-.profile-info {
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for elevation */
+    transition: background 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .profile-header:hover {
+    background: linear-gradient(to right, #444, #222); /* Slight darkening on hover */
+  }
+  
+  /* Profile picture and user details */
+  .profile-info {
     display: flex;
     align-items: center;
-    padding: 10px 15px; /* Reduced padding */
-}
-
-.profile-avatar {
-    width: 80px; /* Reduced avatar size */
-    height: 80px; /* Reduced avatar size */
+    padding: 15px 20px; /* Refined spacing for balance */
+    border-radius: 10px; /* Soft, rounded edges */
+    background: rgba(0, 0, 0, 0.5); /* Transparent background to make it stand out */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  }
+  
+  .profile-avatar {
+    width: 90px; /* Slightly larger for emphasis */
+    height: 90px; /* Match size */
     border-radius: 50%;
-    margin-right: 15px; /* Reduced space between avatar and text */
-}
-
-.user-info h1 {
+    margin-right: 15px;
+    border: 0px solid #f77f00; /* Vibrant orange border for highlight */
+    background: linear-gradient(45deg, #f58529, #c13584, #833ab4); /* Instagram gradient */
+    padding: 4px; /* Frame around avatar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for emphasis */
+  }
+  
+  .user-info h1 {
     margin: 0;
-    font-size: 1.6rem; /* Reduced size for the username */
-    color: #eae2b7;  /* Light color for text */
-}
-
-.user-info p {
+    font-size: 1.8rem; /* Larger, bold, and prominent */
+    font-weight: 600;
+    color: #eae2b7; /* Golden tone for importance */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for clarity */
+  }
+  
+  .user-info p {
     margin: 5px 0;
-    font-size: 0.9rem; /* Smaller text size for additional info */
-    color: #ccc;  /* Soft color for additional text */
-}
-
+    font-size: 0.95rem; /* Refined size */
+    font-weight: 400; /* Lighter for secondary info */
+    color: #aaa; /* Subtle, low-contrast text */
+  }
+  
+  /* Interactivity for hover effect */
+  .profile-avatar:hover {
+    transform: scale(1.05); /* Slight zoom for hover interactivity */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow for hover */
+  }
+  
+  .user-info p:hover {
+    color: #fcbf49; /* Highlighted gold tone */
+    text-shadow: 0.5px 0.5px 2px rgba(255, 255, 255, 0.2); /* Subtle hover emphasis */
+  }
+  
+  
 /* Posts container, ensuring it scrolls under the fixed header */
 .posts-container {
-    margin-top: 120px; /* Ensures posts start below header bar */
-    padding-bottom: 20px;  /* Space below content */
-    overflow-y: auto; /* Allow scrolling */
-    flex-grow: 1; /* Take up remaining space */
-    max-height: calc(100vh - 240px); /* Ensures it fits within the remaining view height */
-    padding-top: 30px; /* Some space between posts and header */
-    margin-left: 50px;  /* Adds margin to the left */
-    margin-right: 50px; /* Adds margin to the right */
-}
-
-/* Displaying the grid of images (3 images in a row) */
-.posts-grid {
+    margin-top: -10px; /* Start posts below the header bar */
+    padding: 30px 50px 20px; /* Uniform padding for content spacing */
+    overflow-y: auto; /* Allow scrolling for long content */
+    flex-grow: 1; /* Ensures the container uses available space */
+    max-height: calc(100vh - 240px); /* Keeps within view height, considering header/footer */
+    background: linear-gradient(to bottom, #1a1a1a, #121212); /* Subtle gradient for depth */
+    border-radius: 15px; /* Smooth rounded corners for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Soft shadow for a polished look */
+  }
+  
+  /* Displaying the grid of images (3 images in a row) */
+  .posts-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3 columns of photos */
-    gap: 15px; /* Space between photos */
-}
-
-/* Post card item styling */
-.post-item {
+    grid-template-columns: repeat(3, 1fr); /* Grid with 3 equally spaced columns */
+    gap: 20px; /* Add consistent space between the posts */
+    padding: 10px;
+    border-radius: 10px; /* Add some subtle roundness to the grid */
+    background: #222; /* Darker backdrop for the post grid */
+  }
+  
+  /* Post card item styling */
+  .post-item {
     background-color: #121212;
     padding: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional depth effect */
-    border-radius: 10px;
-    overflow: hidden; /* Ensures the images don't spill outside */
-}
-
-/* Image styling: Keeps aspect ratio and fills container appropriately */
-.post-image {
+    border-radius: 15px; /* Softer corners for posts */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling and shadow on hover */
+  }
+  
+  .post-item:hover {
+    transform: translateY(-5px); /* Adds a subtle "lift" hover effect */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Glow effect on hover */
+  }
+  
+  /* Image styling: Keeps aspect ratio, and automatically resize/fill the container */
+  .post-image {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-/* Post captions styled for legibility */
-.post-caption {
+    height: 200px; /* Set consistent height for images */
+    border-radius: 12px; /* Slightly rounded corners */
+    object-fit: cover; /* Maintain aspect ratio while covering space */
+    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+  }
+  
+  .post-item:hover .post-image {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Post captions styled for clarity and elegance */
+  .post-caption {
     margin-top: 10px;
-    font-size: 14px;
-    color: #eae2b7;  /* Light color for visibility */
-}
-
-/* For smooth scrolling and ensuring content fits */
-body {
-    overflow-y: scroll;
-    height: 100%; /* Ensure height is 100% to enable scrolling */
-}
+    font-size: 1rem; /* Adjust to a readable font size */
+    font-weight: 500; /* Moderate emphasis */
+    color: #eae2b7; /* Soft, readable text */
+    text-align: center; /* Center-aligned captions for aesthetic balance */
+    letter-spacing: 0.5px; /* Add spacing for elegance */
+  }
 
 
 /* Scrollbar styling */
@@ -124,3 +166,26 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+
+/* Home Button Styling */
+.home-btn {
+    display: inline-block; /* Make the link behave like a button */
+    background: linear-gradient(45deg, #007bb5, #006c95); /* Gradient background */
+    color: #ffffff; /* White text for contrast */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Button-like padding */
+    border-radius: 25px; /* Rounded corners for the button look */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+    font-weight: bold; /* Optional: make the text bold */
+    font-size: 1rem; /* Set a readable font size */
+    text-align: center; /* Center text horizontally */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover Effect */
+  .home-btn:hover {
+    background: linear-gradient(45deg, #006c95, #007bb5); /* Reverse gradient for hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  

@@ -75,7 +75,7 @@ const Login = () => {
       <div className="login-form">
         {/* Logo container */}
         <div className="logo-container">
-          <img src="/instagram.png" alt="Instagram Logo" className="login-logo" />
+          <img src="/instaclone.png" alt="Instagram Logo" className="login-logo" />
         </div>
 
         <h2 className="login-title">Instaclone Login</h2>

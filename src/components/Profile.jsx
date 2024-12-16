@@ -8,15 +8,15 @@ import { jwtDecode } from "jwt-decode";
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([
-    { id: 1, image_url: "/images/image1.jpg", caption: "Enjoying life!" },
-    { id: 2, image_url: "/images/image2.jpg", caption: "A beautiful sunset" },
-    { id: 3, image_url: "/images/image3.jpg", caption: "Vacation vibes!" },
-    { id: 4, image_url: "/images/image4.jpg", caption: "Nature's beauty" },
-    { id: 5, image_url: "/images/image5.jpg", caption: "Chasing dreams" },
-    { id: 6, image_url: "/images/image6.jpg", caption: "City lights" },
-    { id: 7, image_url: "/images/image7.jpg", caption: "Weekend getaway" },
-    { id: 8, image_url: "/images/image8.jpg", caption: "Summer fun!" },
-    { id: 9, image_url: "/images/image9.jpg", caption: "Peaceful morning" },
+    { id: 1, image_url: "/images/pic1.jpg"},
+    { id: 2, image_url: "/images/pic2.jpg"},
+    { id: 3, image_url: "/images/pic5.jpg"},
+    { id: 4, image_url: "/images/pic6.jpg"},
+    { id: 5, image_url: "/images/pic9.jpg"},
+    { id: 6, image_url: "/images/pic3.jpg"},
+    { id: 7, image_url: "/images/pic4.jpg"},
+    { id: 8, image_url: "/images/pic7.jpg"},
+    { id: 9, image_url: "/images/pic8.jpg"},
   ]);
 
   const navigate = useNavigate();

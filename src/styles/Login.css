@@ -9,26 +9,25 @@
 
 /* Body */
 body {
-  font-family: 'Arial', sans-serif; /* Basic, modern font */
-  background-color: #1d2226; /* Dark theme background */
-  color: #ffffff; /* White text color */
+  font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+  background-color: #1d2226; /* Dark background for contrast */
+  color: #ffffff; /* Light text color for readability */
   height: 100vh; /* Full viewport height */
-  display: flex; /* Use flexbox to align and center content */
-  justify-content: center; /* Horizontal center */
-  align-items: center; /* Vertical center */
-  margin: 0; /* Remove default margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Container for the login form */
 .login-container {
-  position: relative; /* Ensure background gradient stays behind the form */
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   padding: 10px;
-  background-color: #242424; /* Same dark background */
+  background-color: #242424;
   overflow: hidden;
 }
 
@@ -40,43 +39,43 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #ff7d49, #f1c40f, #2980b9); /* Subtle gradient mimicking Instagram colors */
-  opacity: 0.2;
-  z-index: -1; /* Ensure it stays behind the form */
+  background: radial-gradient(circle at center, #f58529, #dd2a7b, #8134af, #515bd4); /* Subtle Instagram gradient */
+  opacity: 0.25; /* Soft gradient effect */
+  z-index: -1;
 }
 
 /* Form styling */
 .login-form {
-  background-color: #2a2f36; /* Dark background for form */
+  background-color: #2a2f36; /* Slightly lighter than the body background */
   padding: 35px 45px;
-  border-radius: 10px;
+  border-radius: 15px; /* Smoothly rounded corners */
+  max-width: 400px;
   width: 100%;
-  max-width: 450px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Pronounced shadow for depth */
 }
 
 /* Logo container */
 .logo-container {
-  margin-bottom: 20px; /* Space below the logo */
+  margin-bottom: 25px;
 }
 
 /* Styling for the logo */
 .login-logo {
-  max-width: 100%;
-  height: 100px; /* Set a consistent height */
-  object-fit: contain; /* Keep aspect ratio intact */
-  margin-bottom: 20px; /* Space between logo and title */
+  height: 80px; /* Standardized height */
+  object-fit: contain;
+  margin-bottom: 15px; /* Space below the logo */
 }
 
 /* Login Title */
 .login-title {
-  font-size: 1.8rem;
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700; /* Bolder title */
+  margin-bottom: 25px;
+  color: #eae2b7; /* Softer warm tone for the text */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Form Field Labels and Input Fields */
@@ -86,84 +85,82 @@ body {
 
 .form-field label {
   font-size: 1rem;
-  color: #aaaaaa; /* Light gray for labels */
-  margin-bottom: 10px;
+  color: #aaaaaa; /* Subtle gray for labels */
 }
 
 .form-field input {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #444444; /* Soft border for inputs */
-  background-color: #1e262e; /* Slightly lighter gray for input background */
+  border: 1px solid #444444; /* Clean borders */
+  background-color: #1e262e; /* Slight contrast for input field */
   color: #ffffff;
-  border-radius: 6px;
-  transition: border 0.3s ease, box-shadow 0.2s ease;
+  border-radius: 8px; /* Smooth corners */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Focus effect for inputs */
 .form-field input:focus {
-  border: 1px solid #0097f6; /* Blue on focus */
+  border-color: #f58529; /* Highlighted color matching the gradient */
+  box-shadow: 0 0 8px rgba(245, 133, 41, 0.6); /* Glow effect */
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 151, 246, 0.5); /* Soft blue glow around the input */
 }
 
 /* Button styling */
 .login-btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  background-color: #0097f6; /* Telegram blue for the login button */
+  background: linear-gradient(45deg, #f58529, #c13584, #833ab4); /* Gradient button */
   color: #ffffff;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover effect for button */
 .login-btn:hover {
-  background-color: #007bb5; /* Darker blue on hover */
-  transform: translateY(-3px); /* Lift effect on hover */
+  transform: translateY(-2px); /* Slight hover lift */
+  background-color: #b31e6c; /* Adjusted tone */
 }
 
 /* Sign-up link styling */
 .signup-link {
-  text-align: center;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .signup-link p {
-  font-size: 1rem;
-  color: #cccccc; /* Light gray for the text */
+  color: #cccccc;
+  font-size: 0.9rem;
 }
 
 .signup-link a {
-  color: #0097f6; /* Blue for the link */
+  color: #f58529;
   text-decoration: none;
-  font-weight: 600; /* Slightly bolder text */
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .signup-link a:hover {
-  text-decoration: underline; /* Underline on hover */
+  color: #dd2a7b; /* Complementary hover color */
+  text-decoration: underline;
 }
 
 /* Error message */
 .error-message {
-  color: #e74c3c; /* Red for error messages */
+  color: #e74c3c;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-/* Optional: Mobile responsiveness */
+/* Responsive adjustments */
 @media (max-width: 600px) {
   .login-form {
-    padding: 25px 30px; /* Smaller padding on mobile */
+    padding: 20px 25px;
   }
 
   .login-title {
-    font-size: 1.6rem; /* Smaller title on mobile */
+    font-size: 1.6rem;
   }
 
   .form-field input {

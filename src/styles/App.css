@@ -110,36 +110,61 @@ body {
   border-radius: 50%;
 }
 
-/* Middle container - Instagram Feed */
+/* Middle Container: Posts */
 .middle-container {
   flex: 1;
-  background-color: #1c1c1c;
-  padding: 20px;
-  border-radius: 8px;
-  height: calc(100vh - 70px);
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: scroll; /* Allow vertical scroll within the container */
+  max-height: 100%; /* Set height to allow scrolling when posts overflow */
 }
 
+/* Post Styles */
 .post {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #333;
+  background-color: #121212; /* Post background color */
+  border-radius: 8px; /* Smooth corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional depth effect */
+  overflow: hidden; /* Prevent content overflow */
+  margin: 10px auto; /* Center posts with spacing */
+  padding: 10px; /* Add padding */
+  flex-shrink: 0;
+  width: 100%; /* Make posts fill the available width */
+  max-width: 90%; /* Make the post fit smaller screens if needed */
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;  /* Ensures the background covers the entire post container */
+  background-position: center; /* Keeps background centered */
 }
 
+/* Image Styles: Maintain original aspect ratio and size without overflowing */
 .post-image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  border-radius: 8px;
-  margin: 0 auto;
-  display: block;
+  display: block; /* Ensure the image behaves like a block element */
+  width: auto; /* Set width to auto to maintain the original aspect ratio */
+  max-width: 100%; /* Prevent exceeding container width */
+  height: auto; /* Maintain original height */
+  margin: 0 auto; /* Center the image horizontally */
+  border-radius: 5px; /* Optionally round corners of the image */
+  max-height: 400px; /* Limit height if necessary */
 }
 
-.post-caption {
-  text-align: center;
-  color: #eae2b7;
-  margin-top: 10px;
+/* Ensure the background adjusts around the image container */
+.post-image-container {
+  background-color: #000;  /* Or any color you like for the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* Centers the content (image) in the container */
+  padding: 10px; /* Space between image and container's edges */
+  border-radius: 5px; /* Optional rounded edges for the post image container */
 }
+
+/* Post captions styled for legibility */
+.post-caption {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
 
 /* Right Sidebar - User Profile */
 .right-sidebar {
@@ -240,4 +265,134 @@ input:focus {
 button,
 input {
   transition: all 0.2s ease-in-out;
+}
+
+/* Home Button Styling */
+.home-btn {
+  display: inline-block; /* Make the link behave like a button */
+  background: linear-gradient(45deg, #007bb5, #006c95); /* Gradient background */
+  color: #ffffff; /* White text for contrast */
+  text-decoration: none; /* Remove underline */
+  padding: 8px 15px; /* Button-like padding */
+  border-radius: 25px; /* Rounded corners for the button look */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+  font-weight: bold; /* Optional: make the text bold */
+  font-size: 1rem; /* Set a readable font size */
+  text-align: center; /* Center text horizontally */
+  transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.home-btn:hover {
+  background: linear-gradient(45deg, #006c95, #007bb5); /* Reverse gradient for hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Tablet Screens */
+@media (max-width: 1024px) {
+  .main-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .left-sidebar,
+  .right-sidebar {
+    width: 100%;
+    height: auto; /* Adjust height for smaller screens */
+    margin-bottom: 15px;
+  }
+
+  .middle-container {
+    max-height: unset; /* Allow full scrolling within the container */
+  }
+
+  .contacts-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-bar {
+    padding: 15px;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-nav {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .header-logo {
+    font-size: 1.2rem;
+  }
+
+  .left-sidebar,
+  .right-sidebar {
+    display: none; /* Hide sidebars for smaller devices */
+  }
+
+  .middle-container {
+    padding: 10px;
+    max-width: 100%; /* Utilize full screen width */
+    max-height: unset; /* Remove vertical height restriction */
+  }
+
+  .post {
+    max-width: 100%; /* Fit posts into mobile screens */
+    margin: 0 0 20px 0; /* Adjust spacing for posts */
+  }
+
+  .post-image {
+    max-width: 100%;
+    height: auto; /* Ensure images scale correctly */
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .header-logo {
+    font-size: 1rem; /* Adjust logo size for small screens */
+  }
+
+  .header-nav a {
+    font-size: 0.9rem; /* Reduce nav link font size */
+  }
+
+  .home-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .post-caption {
+    font-size: 0.8rem; /* Adjust caption text size */
+  }
+
+  .logout-btn {
+    font-size: 0.9rem; /* Adjust logout button size */
+  }
+
+  .profile-avatar img {
+    width: 60px;
+    height: 60px; /* Scale avatar for smaller screens */
+  }
+
+  .post-image-container {
+    padding: 5px; /* Reduce padding around images */
+  }
+
+  .post-caption {
+    padding: 8px;
+  }
 }

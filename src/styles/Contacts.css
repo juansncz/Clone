@@ -72,37 +72,52 @@
   }
   
   .left-sidebar {
-    position: fixed; /* Fix the sidebar to the screen */
-    top: 50; /* Start at the top of the screen */
-    left: 0; /* Place it at the left edge of the screen */
-    width: 300px; /* Set a fixed width for the sidebar */
-    height: 100%; /* Make it span the full height of the screen */
-    background-color: #121212;
-    border-radius: 0 20px 20px 0; /* Round only the inner corners */
-    padding: 20px 10px; /* Adjust padding for spacing */
-    overflow-y: auto; /* Allow vertical scrolling */
-    z-index: 1000; /* Ensure it's above other elements */
+    position: fixed;  /* Fix the sidebar to the screen */
+    top: 50;  /* Start at the top of the screen */
+    left: 20px;  /* Space the sidebar a bit from the left edge */
+    width: 280px;  /* Slightly smaller width to make the sidebar more compact */
+    height: 100%;  /* Full height of the screen */
+    background: linear-gradient(to right, #2f2f2f, #121212);  /* Instagram-inspired gradient for depth */
+    border-radius: 0 20px 20px 0;  /* Rounded inner corners */
+    padding: 20px 15px;  /* Increased padding for a clean, spacious feel */
+    overflow-y: auto;  /* Allow scrolling */
+    z-index: 1000;  /* Ensure it's above other elements */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);  /* Add subtle shadow for depth */
   }
   
   .stories-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
   
   .story-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    margin-bottom: 15px;  /* Space between story items */
+    transition: all 0.3s ease;
+  }
+  
+  .story-item:hover {
+    background-color: #1f1f1f;  /* Slight darkening on hover for visual depth */
+    border-radius: 10px;  /* Rounded corners on hover */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);  /* Glow effect on hover */
   }
   
   .story-avatar {
-    width: 50px;
-    height: 50px;
+    width: 50px;  /* Larger size for prominence */
+    height: 50px;  /* Consistency in avatar size */
     border-radius: 50%;
-    border: 3px solid transparent;
-    background: linear-gradient(to right, #f58529, #c13584, #833ab4, #405de6);
-    padding: 2px;
+    background: linear-gradient(45deg, #f58529, #c13584, #833ab4);  /* Instagram-style gradient */
+    padding: 3px;  /* Larger padding for more definition */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);  /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth scaling and shadow transition */
+  }
+  
+  .story-avatar:hover {
+    transform: scale(1.1);  /* Slight zoom effect on hover for interactivity */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);  /* Bigger shadow effect on hover */
   }
   
   .story-avatar img {
@@ -110,13 +125,28 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    background-color: #000;
+    transition: transform 0.3s ease;
+  }
+  
+  .story-avatar img:hover {
+    transform: scale(1.05);  /* Small zoom effect on image hover */
   }
   
   .story-username {
-    font-size: 0.85rem;
-    color: #ccc;
+    font-size: 1rem;
+    font-weight: bold;  /* Emphasize the username */
+    color: #eae2b7;  /* Light off-white text for contrast */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);  /* Subtle text shadow for readability */
   }
+  
+  .left-sidebar h3 {
+    color: #eae2b7; /* Soft, modern text color */
+    font-size: 1.5rem;  /* Bold, prominent section titles */
+    font-weight: 600;  /* Bolder font weight for titles */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  /* Softer, but more noticeable shadow for titles */
+    margin-bottom: 20px;
+  }
+  
   
   
 /* Middle Container: Posts */
@@ -124,75 +154,137 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    overflow-y: scroll; /* Allow vertical scroll within the container */
-    max-height: 100%; /* Set height to allow scrolling when posts overflow */
-}
-
-/* Post Styles */
-.post {
-    background-color: #121212; /* Post background color */
-    border-radius: 8px; /* Smooth corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional depth effect */
-    overflow: hidden; /* Prevent content overflow */
-    margin: 10px auto; /* Center posts with spacing */
-    padding: 10px; /* Add padding */
+    gap: 25px;  /* Increased gap for more spaciousness */
+    overflow-y: auto;  /* Allow vertical scroll */
+    max-height: 100%;  /* Make the container scrollable */
+    padding: 20px 15px;  /* Add internal padding for aesthetic space */
+    background-color: #1a1a1a;  /* Slightly darker background to create a calm contrast */
+  }
+  
+  /* Post Styles */
+  .post {
+    background-color: #181818;  /* Slightly deeper background for emphasis */
+    border-radius: 12px;  /* Smooth, modern rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  /* Soft, dynamic shadow to pop posts */
+    overflow: hidden;  /* Prevent overflow */
+    margin: 10px auto;  /* Ensure post is centered with spacing */
+    padding: 15px;  /* Room for content to breathe */
     flex-shrink: 0;
-    width: 100%; /* Make posts fill the available width */
-    max-width: 90%; /* Make the post fit smaller screens if needed */
+    width: 100%;  /* Make the post fill its parent container */
+    max-width: 90%;  /* Limit width for responsiveness */
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Image Styles: Maintain original aspect ratio and size */
-.post-image {
-    display: block; /* Ensure the image behaves like a block element */
-    width: auto; /* Set width to auto to maintain the original aspect ratio */
-    max-width: 100%; /* Prevent exceeding container width */
-    height: auto; /* Maintain original height */
-    max-height: 400px; /* Limit height, if needed */
-    margin: 0 auto; /* Center the image horizontally */
-    border-radius: 5px; /* Optionally round corners of the image */
-}
-
-
+    background-size: cover;  /* Ensure background image is fully covered */
+    background-position: center center;  /* Keep background image centered */
+    transition: all 0.3s ease-in-out;  /* Smooth hover animation */
+  }
   
-  .post-caption {
+  .post:hover {
+    transform: scale(1.02);  /* Slight zoom effect on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);  /* Stronger shadow for hover effect */
+  }
+  
+  /* Image Styles: Maintain original aspect ratio */
+  .post-image {
+    display: block;
+    width: 100%;  /* Take full available width */
+    height: auto;  /* Maintain original aspect ratio */
+    border-radius: 8px;  /* Rounded corners for soft edges */
+    max-height: 450px;  /* Limit max height for posts with big images */
+    object-fit: cover;  /* Ensure the image scales nicely within container */
+  }
+  
+  /* Post Image Container: Flexible and centered layout */
+  .post-image-container {
+    background-color: rgba(0, 0, 0, 0.5);  /* Slight black overlay to enhance image visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Center the image perfectly */
+    padding: 15px;  /* Increased padding for breathing room */
+    border-radius: 12px;  /* Match the post's rounded edges */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);  /* Extra shadow to distinguish the container */
+    transition: background-color 0.3s ease;  /* Smooth transition for background changes */
+  }
+  
+  .post-image-container:hover {
+    background-color: rgba(0, 0, 0, 0.3);  /* Subtle darkening on hover */
+  }
+  
+  /* General Post Text Enhancements */
+  .post-text {
+    font-size: 1rem;  /* Comfortable size for readability */
+    color: #eae2b7;  /* Light, readable text color */
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);  /* Smooth text shadow for clarity */
+  }
+  
+  .post-author {
+    font-size: 0.9rem;  /* Slightly smaller for author text */
+    color: #d4d4d4;  /* Subtle off-white for less emphasis */
+    font-weight: 600;  /* Bold for emphasis */
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.2);  /* Light text shadow */
+  }
+  
+  /* Animation and Transition for a smooth feeling */
+  .post-text, .post-author {
+    transition: color 0.3s ease;
+  }
+  
+  .post-text:hover, .post-author:hover {
+    color: #f58529;  /* Subtle hover effect color to align with Instagram theme */
+  }
+  
+
+/* Post captions styled for legibility */
+.post-caption {
     padding: 10px;
     font-size: 0.9rem;
     color: #eae2b7;
-  }
+}
+
   
-  .right-sidebar {
-    position: fixed; /* Fix the sidebar to the screen */
-    top: 50; /* Start at the top of the screen */
-    right: 10px; /* Move it 10px away from the right edge */
-    width: 300px; /* Set a fixed width for the sidebar */
-    height: 100%; /* Make it span the full height of the screen */
-    background-color: #121212;
-    border-radius: 20px 0 0 20px; /* Round only the inner corners */
-    padding: 15px;
-    overflow-y: auto; /* Allow vertical scrolling */
-    z-index: 1000; /* Ensure it stays above other elements */
+.right-sidebar {
+    position: fixed;  /* Fix the sidebar to the screen */
+    top: 50;  /* Start at the top of the screen */
+    right: 20px;  /* Space out from the edge for better positioning */
+    width: 280px;  /* A slightly smaller width to feel more compact */
+    height: 100%;  /* Full height */
+    background: linear-gradient(to right, #2f2f2f, #121212);  /* Smooth gradient for depth */
+    border-radius: 20px 0 0 20px;  /* Smooth rounded corners */
+    padding: 20px;  /* Increased padding for a more spacious layout */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    z-index: 1000;  /* Ensure it's above all content */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);  /* Add a subtle shadow around the sidebar for more depth */
   }
-  
   
   .suggestions-container h3 {
-    color: #fff;
-    margin-bottom: 10px;
+    color: #eae2b7;  /* Light gold/cream color to match the theme */
+    font-size: 1.3rem;  /* Increase the size slightly for a bolder feel */
+    font-weight: 600;  /* Bolder text */
+    margin-bottom: 15px;
   }
   
   .suggestion-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 15px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;  /* Smooth transitions for hover effect */
+  }
+  
+  .suggestion-item:hover {
+    background-color: #1f1f1f;  /* Darken the background on hover for interactivity */
+    border-radius: 10px;  /* Soft rounding on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  /* Add glow-like effect for hover */
   }
   
   .suggestion-avatar {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    background: linear-gradient(45deg, #f58529, #c13584, #833ab4);  /* Instagram-style gradient */
+    padding: 3px;
+    border: 0px solid #fff;  /* Add a light border around the avatar for sharper details */
     overflow: hidden;
   }
   
@@ -200,6 +292,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all 0.3s ease;  /* Smooth image transition */
+  }
+  
+  .suggestion-avatar:hover img {
+    transform: scale(1.1);  /* Slight zoom effect on avatar hover */
   }
   
   .suggestion-info {
@@ -210,84 +307,130 @@
   }
   
   .suggestion-username {
-    color: #ccc;
+    color: #fff;
+    font-weight: 600;  /* Bold the username */
+    font-size: 1rem;
   }
   
   .view-btn {
-    background-color: #0095f6;
+    background-color: #0095f6;  /* Instagram-like blue */
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: 30px;  /* Rounded, pill-shaped button */
+    padding: 7px 15px;
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
   
   .view-btn:hover {
     background-color: #007bb5;
+    transform: scale(1.05);  /* Slight scale-up on hover for interactivity */
   }
   
-/* Modal Styling - Instagram-style */
+  .view-btn:active {
+    background-color: #006c95;  /* Darken the button when clicked */
+  }
+  
+  .right-sidebar h3 {
+    color: #eae2b7;  /* Soft off-white to brighten the text */
+    font-size: 1.3rem;
+    font-weight: 600;  /* Bolded heading for a prominent look */
+  }
+  
+  
+/* Modal Styling - Instagram-Style */
 .modal-content {
     background-color: #121212; /* Dark background for a sleek look */
-    color: #121212;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for modern style */
+    color: #fff; /* White text for readability */
+    border-radius: 15px; /* Softer rounded corners */
+    padding: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow for depth */
+    transition: transform 0.3s ease; /* Smooth open animation */
   }
   
+  /* Modal Header */
   .modal-header {
-    background-color: #1e1e1e; 
+    background-color: #1e1e1e; /* Darker tone for header */
     border-bottom: 1px solid #262626;
-    padding: 15px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
+  /* Modal Title */
   .modal-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    letter-spacing: 1px; /* Subtle letter spacing for a sleek modern touch */
+    font-size: 1.8rem; /* Larger title for emphasis */
+    font-weight: 700; /* Bold for contrast */
+    color: #eae2b7; /* Instagram-esque soft gold/yellow shade */
+    letter-spacing: 2px; /* Increased spacing for a more modern look */
+    text-transform: uppercase; /* All caps for a more Instagram-like tone */
   }
   
+  /* Modal Body */
   .modal-body {
     background-color: #121212;
     padding: 20px 0;
-    color: #eae2b7;
-    font-size: 1rem;
+    color: #eae2b7; /* Soft gold/yellow for legible, calming text */
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    line-height: 1.6; /* Comfortable line height for better reading */
   }
   
+  /* Modal Footer */
   .modal-footer {
     border-top: 1px solid #262626;
     background-color: #1e1e1e;
     justify-content: flex-end;
-    padding: 15px 0;
+    padding: 20px;
   }
   
+  /* Footer Buttons */
   .modal-footer button {
     color: #fff;
-    border-radius: 30px; /* Soft, rounded buttons for a modern look */
-    padding: 10px 20px;
-    font-weight: bold;
-    letter-spacing: 1px; /* Subtle letter spacing to enhance button visibility */
+    background: linear-gradient(45deg, #f58529, #c13584, #833ab4); /* Instagram-style gradient */
+    border-radius: 30px; /* Soft, rounded buttons */
+    padding: 12px 30px; /* Larger padding for button touch areas */
+    font-weight: 600;
+    letter-spacing: 2px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth hover transition */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none; /* Remove default borders */
   }
   
+  /* Button Hover Effects */
   .modal-footer button:hover {
-    background-color: #555;  /* Darker gray hover effect */
+    background-color: #f77f00; /* Instagram-like orange for hover effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for hover */
+    transform: scale(1.05); /* Gentle zoom-in effect */
   }
   
-  .modal-footer button:focus {
-    box-shadow: none;
-  }
-  
+  /* Button Active Effect */
   .modal-footer button:active {
-    transform: scale(0.98); /* Button scaling effect when clicked */
+    background-color: #ff4e00; /* Slightly deeper orange for active state */
+    transform: scale(0.98); /* Shrinking effect to indicate click */
   }
+  
+  /* Remove outline on focus (helps with modern feel) */
+  .modal-footer button:focus {
+    outline: none;
+  }
+  
+  /* Modal Open Effect */
+  .modal.show .modal-content {
+    transform: scale(1.05); /* Modal slightly grows when it appears */
+  }
+  
+  /* Modal Close Effect */
+  .modal.fade .modal-content {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  .modal.show .modal-content {
+    opacity: 1;
+  }
+  
   
   
   
@@ -306,60 +449,228 @@
   }
   
 
-  .header-bar {
+ /* Header Bar */
+.header-bar {
     display: flex;
     justify-content: center; /* Centers the inner content */
     align-items: center;
-    background-color: #f8f9fa; /* Adjust as needed */
-    padding: 10px 0; /* Adjust vertical padding */
+    background: linear-gradient(45deg, #f58529, #c13584, #833ab4, #121111,#151414,#000000); /* Instagram-like gradient */
+    padding: 15px 0; /* Adjust vertical padding */
     width: 100vw; /* Full width of the viewport */
-    position: fixed; /* Optional: Fix the header to the top */
-    top: 0; /* Position it at the top of the screen */
-    left: 0; /* Ensure it starts at the left edge */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional styling */
+    position: fixed; /* Fix header to the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align with the left edge */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle, modern shadow */
     z-index: 1000; /* Ensure it stays above other elements */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light border at the bottom */
   }
   
+  /* Header Container */
   .header-container {
     display: flex;
-    justify-content: space-between; /* Space between logo and navigation */
+    justify-content: space-between; /* Space out logo and navigation */
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Keep content aligned and readable */
-    padding: 0 20px; /* Add padding for inner spacing */
+    max-width: 1200px; /* Limit width for better readability */
+    padding: 0 20px; /* Inner spacing for a more clean feel */
   }
   
-  
+  /* Header Logo */
   .header-logo {
     display: flex;
     align-items: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
+    font-size: 1.8em; /* Slightly larger font size for prominence */
+    font-weight: 700; /* Bold font for modern appearance */
+    color: #fff; /* White color for logo text */
+    letter-spacing: 2px; /* Slight space between letters for a sleek vibe */
   }
   
   .header-logo img {
-    height: 60px;
-    margin-right: 0px; /* Add space between logo and text */
+    height: 50px; /* Adjusted for consistency */
+    margin-right: 5px; /* Space between logo and text */
   }
   
+  /* Header Navigation */
   .header-nav {
     display: flex;
-    gap: 15px; /* Adjust spacing between links/buttons */
+    gap: 25px; /* More space between items for clarity */
+    align-items: center;
   }
   
+  /* Header Links and Buttons */
   .header-nav a,
   .header-nav button {
     text-decoration: none;
-    color: #ffffff;
-    font-size: 1em;
+    color: #ffffff; /* White color for navigation text */
+    font-size: 1.1em; /* Slightly larger font size */
     border: none;
     background: none;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 8px 14px; /* Larger clickable area for ease of interaction */
+    border-radius: 30px; /* Rounded corners for buttons and links */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition for effects */
   }
   
+  /* Header Links and Buttons Hover Effect */
+  .header-nav a:hover,
+  .header-nav button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle background color change */
+    transform: scale(1.05); /* Slight zoom-in effect for interactivity */
+  }
+  
+  /* Header Logout Button (Optional) */
   .header-nav button {
-    color: #ffffff; /* Optional: distinguish logout */
+    background: linear-gradient(45deg, #007bb5, #006c95); /* Gradient background for accent buttons */
+    padding: 8px 15px;
+    border-radius: 25px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Light shadow for the button */
+  }
+  
+  .header-nav button:hover {
+    background: linear-gradient(45deg, #007bb5, #006c95); /* Reverse gradient for hover effect */
+  }
+
+  /* Home Button Styling */
+.home-btn {
+    display: inline-block; /* Make the link behave like a button */
+    background: linear-gradient(45deg, #007bb5, #006c95); /* Gradient background */
+    color: #ffffff; /* White text for contrast */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Button-like padding */
+    border-radius: 25px; /* Rounded corners for the button look */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+    font-weight: bold; /* Optional: make the text bold */
+    font-size: 1rem; /* Set a readable font size */
+    text-align: center; /* Center text horizontally */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover Effect */
+  .home-btn:hover {
+    background: linear-gradient(45deg, #006c95, #007bb5); /* Reverse gradient for hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Media Queries for Responsiveness */
+
+/* For Small Screens (Mobile Portrait) */
+@media (max-width: 600px) {
+    body {
+      overflow-y: auto; /* Enable full body scroll for small screens */
+    }
+  
+    /* Header Bar */
+    .header-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    .header-nav a,
+    .header-nav button {
+      font-size: 0.85rem;
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  
+    /* Main Container Adjustments */
+    .main-container {
+      flex-direction: column;
+      padding: 15px;
+    }
+  
+    .left-sidebar,
+    .right-sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+  
+    .left-sidebar h3,
+    .right-sidebar h3 {
+      font-size: 1.2rem;
+    }
+  
+    .stories-container .story-item {
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+  
+    /* Middle Container Adjustments */
+    .middle-container {
+      padding: 10px;
+      gap: 15px;
+      max-height: none; /* Remove height restrictions */
+    }
+  
+    .post {
+      max-width: 100%; /* Posts take full width */
+      padding: 10px;
+    }
+  
+    /* Text and Font Adjustments */
+    .post-text,
+    .post-author {
+      font-size: 0.85rem;
+    }
+  
+    .story-avatar,
+    .suggestion-avatar {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .story-username {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* For Medium Screens (Tablets and Small Laptops) */
+  @media (max-width: 1024px) {
+    .header-bar {
+      justify-content: center;
+      padding: 15px;
+    }
+  
+    .main-container {
+      max-width: 100%;
+      padding: 10px;
+    }
+  
+    .left-sidebar,
+    .right-sidebar {
+      width: 200px;
+      padding: 15px;
+    }
+  
+    .post {
+      max-width: 95%;
+    }
+  
+    .post-text {
+      font-size: 1rem;
+    }
+  }
+  
+  /* For Large Screens (Desktops and Laptops) */
+  @media (min-width: 1025px) {
+    /* Fine-tuning for larger screens */
+    .main-container {
+      max-width: 1200px;
+      padding: 30px;
+      gap: 30px;
+    }
+  
+    .left-sidebar,
+    .right-sidebar {
+      padding: 25px;
+    }
+  
+    .post {
+      max-width: 80%;
+    }
   }
   
