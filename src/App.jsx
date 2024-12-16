@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Contacts from "./components/Contacts";
@@ -10,6 +10,8 @@ const App = () => {
     <Router>
       <div className="app-container">
         <Routes>
+          {/* Redirect root path '/' to '/login' */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contacts" element={<Contacts />} />
