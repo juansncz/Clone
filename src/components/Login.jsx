@@ -78,7 +78,7 @@ const Login = () => {
           <img src="/instaclone.png" alt="Instagram Logo" className="login-logo" />
         </div>
 
-        <h2 className="login-title">InstClone Login</h2>
+        <h2 className="login-title">InstaClone Login</h2>
 
         {error && <p className="error-message">{error}</p>}
 
